@@ -1,32 +1,66 @@
+html,
 body {
-  min-height: 100vh;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+body {
+  background-image: linear-gradient(120deg, brown, royalblue);
+}
+
+/* 버튼 */
 .btn {
   background-color: chocolate;
   box-shadow: 0 14px 0 brown, 0 20px 14px rgba(0, 0, 0, 0.2);
-}
-
-.btn > .loader {
-  display: none;
-  width: 20px;
-  height: 20px;
-  border: 4px solid white;
+  width: 300px;
+  height: 70px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s;
 }
 
 .btn.loading {
+  transform: translateY(10px);
   box-shadow: 0 4px 0 brown, 0 4px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* 버튼 텍스트 */
+.btn > .text {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+}
+
 .btn.loading > .text {
+  display: none;
+}
+
+/* 버튼 로딩 */
+.btn > .loader {
+  display: none;
 }
 
 .btn.loading > .loader {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 4px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spinner 1s infinite linear;
 }
 
 @keyframes spinner {
   0% {
+    transform: rotate(0deg);
   }
   100% {
+    transform: rotate(360deg);
   }
 }
